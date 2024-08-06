@@ -6,12 +6,10 @@ import Cart from './components/cart/cart';
 // Import data en variale 
 const { getData } = require('./db/db');
 const wallpapers = getData();
-
 const tg = window.Telegram.WebApp
 
 function App() {
   const [ cartItems, setCartItems ] = useState([]);
-
 
   useEffect(() => {
     tg.ready();
@@ -46,10 +44,15 @@ function App() {
     }
   };
 
+  const onCheckout = () => {
+    tg.MainButton.text = "Pay :)";
+    tg.MainButton.show();
+  };
+
   return (
   <>
     <h2 className="heading">Order Wallpaper</h2>
-    <Cart cartItems={cartItems} />
+    <Cart cartItems={cartItems} onCheckout={onCheckout} />
     <div className="cards__container">
       {wallpapers.map((wallpaper) => {
         return <Card wallpaper={wallpaper} key={wallpaper.id} onAdd={onAdd} onRemove={onRemove} />;
