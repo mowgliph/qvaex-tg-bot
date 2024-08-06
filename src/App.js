@@ -1,7 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable array-callback-return */
-/* eslint-disable no-unused-expressions */
-
 import React, { useState } from 'react';
 import './App.css';
 import Card from './components/card/card';
@@ -15,16 +11,14 @@ function App() {
   const [ cartItems, setCartItems ] = useState([]);
     
   const onAdd = (wallpaper) => {
-    const exist = cartItems.find((x) => x.id === wallpaper.id);
-    if (exist) {
-      setCartItems(
-        cartItems.map((x) => {
-          x.id === wallpaper.id ? {
-            ...exist, quantity: exist.quantity + 1 
-          } : x
-        })
-      );
-    } else {
+    const exist = cartItems.find((x) => x.id === wallpaper.id)
+    
+    if (exist){
+      setCartItems(cartItems.map(
+        x => x.id === wallpaper.id ? {
+          ...exist, quantity: exist.quantity + 1
+        } : x))
+    }else{
       setCartItems([...cartItems, { ...wallpaper, quantity:1 }]);
     }
   };
