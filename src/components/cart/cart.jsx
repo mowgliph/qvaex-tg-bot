@@ -8,7 +8,7 @@ function Cart({ cartItems, onCheckout }) {
         (a, c) => a + c.price * c.quantity, 0 
     );
 
-    return <div classname="cart_container">
+    return <div classname="cart__container">
         {cartItems.length === 0 ? "No items in cart" : ""}
         <br /> <span classname="">Total Price: ${totalPrice.toFixed(2)}</span>
 
