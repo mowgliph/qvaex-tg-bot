@@ -6,10 +6,10 @@ import manImg from '../images/man.jpg';
 
 export function getData() {
     return[
-        { title: 'Cartoon', price: 4.99, Image: cartoonImg },
-        { title: 'Doodles', price: 4.99, Image: doodlesImg },
-        { title: 'Elephant', price: 4.99, Image: elephantImg },
-        { title: 'Kitten', price: 4.99, Image: kittenImg },
-        { title: 'a Man', price: 4.99, Image: manImg },
-    ]
+        { title: 'Cartoon', price: 0.99, image: cartoonImg },
+        { title: 'Doodles', price: 0.99, image: doodlesImg },
+        { title: 'Elephant', price: 0.99, image: elephantImg },
+        { title: 'Kitten', price: 0.99, image: kittenImg },
+        { title: 'A Man', price: 0.99, image: manImg },
+    ];
 }
