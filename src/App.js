@@ -6,13 +6,14 @@ import Cart from './components/cart/cart';
 // Import data en variale 
 const { getData } = require('./db/db');
 const wallpapers = getData();
-const tg = window.Telegram.WebApp
+const tg = window.Telegram.WebApp;
 
 function App() {
   const [ cartItems, setCartItems ] = useState([]);
 
   useEffect(() => {
     tg.ready();
+    tg.expand();
   });
     
   const onAdd = (wallpaper) => {
