@@ -2,16 +2,18 @@ import React, { useState } from 'react'
 import './card.css';
 import Button from '../buttons/button';
 
-function Card({ wallpaper }) {
+function Card({ wallpaper, onAdd, onRemove }) {
   const [ count, setCount ] = useState(0);  
   const { id, title, image, price } = wallpaper;
 
   const handleIncrement = () => {
     setCount(count+1);
+    onAdd(wallpaper);
   }
 
   const handleDecrement = () => {
-    setCount(count-1);
+    setCount(count - 1);
+    onRemove(wallpaper);
   }
   
   return (

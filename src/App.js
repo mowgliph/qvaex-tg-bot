@@ -42,10 +42,10 @@ function App() {
   return (
   <>
     <h2 className="heading">Order Wallpaper</h2>
-    <Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />
+    <Cart cartItems={cartItems} />
     <div className="cards__container">
       {wallpapers.map((wallpaper) => {
-        return <Card wallpaper={wallpaper} key={wallpaper.id} />;
+        return <Card wallpaper={wallpaper} key={wallpaper.id} onAdd={onAdd} onRemove={onRemove} />;
       })}
   </div>
   </>);
