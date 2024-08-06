@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Card from './components/card/card';
 import Cart from './components/cart/cart';
@@ -7,8 +7,15 @@ import Cart from './components/cart/cart';
 const { getData } = require('./db/db');
 const wallpapers = getData();
 
+const tg = window.Telegram.WebApp
+
 function App() {
   const [ cartItems, setCartItems ] = useState([]);
+
+
+  useEffect(() => {
+    tg.ready();
+  });
     
   const onAdd = (wallpaper) => {
     const exist = cartItems.find((x) => x.id === wallpaper.id)
